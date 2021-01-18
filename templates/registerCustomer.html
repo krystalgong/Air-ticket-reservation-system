@@ -1,0 +1,149 @@
+<html>
+<head>
+    <title>RegisterCustomer</title>
+</head>
+<style>
+    head {
+    text-align:center;
+    /* font-family:Arial Black, Gadget, sans-serif; */
+    }
+    body {
+        text-align:center;
+        font-family:Arial Black, Gadget, sans-serif;
+        background-image:url("http://www.ceair.com/upload/2020/09/20200917.png");
+        }
+    h1 {font-size:30px;}
+    h2 {font-size:20px;}
+    b {font-size:16px;}
+    input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    input[type=number], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    input[type=password], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    input[type=datetime-local], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+    input[type=date], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+    width: 30%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+    background-color: #45a049;
+    }
+    
+    table, td, th{
+        border:1px solid green;
+        margin:auto;
+    }
+    th{
+        background-color:green;
+        color:white;
+        padding:15px;
+    }
+    td{
+        padding:15px;
+        vertical-align:middle;
+        text-align:middle;
+    }
+    ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+</style>
+<body>
+    <h1>Register as Customer</h1>
+    <a href="/">Go back</a>
+    <br>{% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+    {% endif %}
+    <div>
+        <form action="/registerAuthCustomer" method="POST">
+            Name <br><input type="text" name = "name" placeholder="name" required/> </br><br>
+            Set your username (email) and password: <br>
+            Email <br><input type="text" name = "email" placeholder="email" required/> </br>
+            Password <br><input type="password" name = "password" placeholder="password" required/></br><br>
+            Address: <br>
+            Building Number <br><input type="text" name = "building_number" placeholder="building_number" required/></br>
+            Street <br><input type="text" name = "street" placeholder="street" required/></br>
+            City  <br><input type="text" name = "city" placeholder="city" required/></br>
+            State <br><input type="text" name = "state" placeholder="state" required/></br><br>
+            Basic Information: <br>
+            Phone Number <br><input type="number" name = "phone_number" placeholder="phone_number" required/></br>
+            Passport Number <br><input type="text" name = "passport_number" placeholder="passport_number" required/></br>
+            Passport Expiration <br><input type="date" name = "passport_expiration" placeholder="passport_expiration" required/></br>
+            Passport Country <br><input type="text" name = "passport_country" placeholder="passport_country" required/></br>
+            Date of Birth <br><input type="date" name = "date_of_birth" placeholder="date_of_birth" required/></br><br>
+            <input type="submit" value = Register /><br>
+            
+        </form>
+        
+    </div>
+
+</body>
+</html>

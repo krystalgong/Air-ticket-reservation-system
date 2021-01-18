@@ -1,0 +1,31 @@
+﻿homeAgent.html                 to generate the Agent Homepage
+homeCustomer.html                 to generate the Customer Homepage
+addairplane.html                  to generate the page for staff to add an airplane
+addairplaneresult.html         to generate the page for staff to see all updated airplanes
+addairport.html                  to generate the page for staff to add an airport
+login.html                         to generate the login page for three types of users
+index.html                          to generate the homepage with public search function
+registerStaff.html                 to generate the registration page for staff
+registerAgent.html                  to generate the registration page for agent
+registerCustomer.html          to generate the registration page for customer
+purchaseAgent.html                   to generate the page for agent to purchase a ticket
+purchaseCustomer.html          to generate the page for customer to purchase a ticket
+searchresult.html                  to generate the page to display public search result
+searchAgent.html                  to generate the page for agent to search for flights
+staffsearchflight.html                  to generate the homepage for staff to search for flights
+searchCustomer.html          to generate the page for customer to search for flights
+statusresult.html                  to generate the page to display the public flight status result
+createflight.html                 to generate the page for staff to create a flight or change status
+commission.html                 to generate the page for agent to view commission result
+trackSpending.html                  to generate the page for customer to see spending filter result
+trackSpendingCustomer.html to generate the page for customer to track his spending
+viewCommissionAgent.html   to generate the page for agent to track his commission
+viewFlightAgent.html                 to generate the page for agent to see his purchased flights
+viewFlightCustomer.html          to generate the page for customer to see his purchased flights
+viewTop5Customers.html           to generate the page for agent to see his top 5 customers
+viewbookingagents.html          to generate the page for staff to view top 5 booking agents
+viewcustomerfilter.html          to generate the page for staff to see a customer’s flight history
+viewcustomers.html                  to generate the page for staff to view most frequent customer
+viewdestination.html                  to generate the page for staff to view top 3 destinations
+viewreport.html                  to generate the page for staff to view the report
+viewrevenue.html                  to generate the page for staff to view the indirect/direct revenue

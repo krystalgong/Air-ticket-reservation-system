@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title>createflight</title> 
+    </head>
+    <style>
+        head {
+        text-align:center;
+        /* font-family:Arial Black, Gadget, sans-serif; */
+        }
+        body {
+            text-align:center;
+            font-family:Arial Black, Gadget, sans-serif;
+            background-image:url("http://www.ceair.com/upload/2020/09/20200917.png");
+            }
+        h1 {font-size:30px;}
+        h2 {font-size:20px;}
+        b {font-size:16px;}
+        input[type=text], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        input[type=number], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        input[type=datetime-local], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+
+        input[type=date], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+        width: 30%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+        background-color: #45a049;
+        }
+        
+        table, td, th{
+            border:1px solid green;
+            margin:auto;
+        }
+        th{
+            background-color:green;
+            color:white;
+            padding:15px;
+        }
+        td{
+            padding:15px;
+            vertical-align:middle;
+            text-align:middle;
+        }
+  </style>
+    <body>
+    {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}}</p>
+    {% endif %}
+
+    
+    <h2>Create Flight</h2>
+    
+    <div>
+        <form action="/staffHome/searchFlights/updatedlist" method="POST">
+            <input type="number" name = "flightnum" placeholder="Flight Number" required/> </br>
+            <input type="text" name = "departport" placeholder="Departure Airport" required/> </br>
+            <b>Departure Time</b> </br>
+            <input type=datetime-local name = "departtime" step="1" required> </br>
+            <input type="text" name = "arriveport" placeholder="Arrival Airport" required/> </br>
+            <b>Arrival Time</b> </br>
+            <input type=datetime-local name = "arrivetime" step="1" required> </br>
+            <input type="number" name = "price" placeholder="Ticket Price" required/> </br>
+            <input type="text" name = "airplanenum" placeholder="Airplane ID" required/> </br>
+            <input type="submit" value = Submit />
+        </form>
+    </div>
+
+    
+        <h2>Update Status</h2>
+    <div>
+        <form action="/staffHome/searchFlights/updatedstatus" method="POST">
+            <input type="text" name = "flightnum" placeholder="Flight Number" required/> </br>
+            <input type="radio" name="status" value="Upcoming" required> Upcoming
+            <input type="radio" name="status" value="Delayed"> Delayed
+            <input type="radio" name="status" value="In-progress"> In Progress
+            <input type="radio" name="status" value="Arrived"> Arrived <br><br>
+            <input type="submit" value = Update />
+        </form>
+    </div>
+    <a href="/staffHome">Back</a>
+
+</body>
+
+
+</html>

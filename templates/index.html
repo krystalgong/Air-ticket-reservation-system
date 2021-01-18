@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>airline booking system</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+        text-align:center;
+        font-family:Arial Black, Gadget, sans-serif;
+        background-image:url("http://www.ceair.com/upload/2020/09/20200917.png");
+        }
+    h1 {font-size:30px;}
+    h2 {font-size:20px;}
+    b {font-size:16px;}
+    /* input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    input[type=number], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    input[type=datetime-local], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+    input[type=date], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+    width: 30%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+    background-color: #45a049;
+    }
+    
+    div {
+    border-radius: 5px;
+    background-color: #68b9c0a4;
+    padding: 20px;
+    }
+    table, td, th{
+        border:1px solid green;
+        margin:auto;
+    }
+    th{
+        background-color:green;
+        color:white;
+        padding:15px;
+    }
+    td{
+        padding:15px;
+        vertical-align:middle;
+        text-align:middle;
+    }*/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: rgb(11, 198, 255);
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+head {
+            text-align:center;
+            /* font-family:Arial Black, Gadget, sans-serif; */
+        }
+        body {
+          background-color: rgb(171, 228, 250);
+            text-align:left;
+            font-family:Arial Black, Gadget, sans-serif;
+            }
+        h1 {font-size:30px;
+        position: relative;
+        top: 50px;
+        text-align: center;}
+        h2 {font-size:20px;
+        position: relative;
+        left: 20px;}
+        b {font-size:16px;}
+        input[type=text], select {
+          width: 30%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+
+        input[type=date], select {
+          width: 30%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+          width: 30%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+/*         
+        div {
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 20px;
+        } */
+        a {
+          position: relative;
+          left: 0px;}
+        a:link {text-decoration:none;}    /* unvisited link */
+        a:visited {text-decoration:none;} /* visited link */
+        a:hover {text-decoration:underline;}   /* mouse over link */
+        a:active {text-decoration:underline;}  /* selected link */
+        p{
+            position: relative;
+            top: 30px;
+            text-align: center; 
+        }
+</style>
+<body>
+    <ul>
+        <li id='Travel'>
+            <a href="/">Home Page</a>
+        </li>
+        <li style="float:right" id='login'>
+            <a href="/login">Login</a>
+        </li>
+        <li style="float:right" class='dropdown'>
+            <a href="javascript:void(0)" class="dropbtn">Register</a>
+            <div class="dropdown-content">
+                <a href="/registerCustomer">Customer</a>
+                <a href="/registerAgent">Agent</a>
+                <a href="/registerStaff">Staff</a>
+            </div>
+        </li>
+        <!-- <li style="float:right" id='publicsearch'>
+            <a href="/publicsearch">Public Search</a>
+        </li> -->
+    </ul>
+
+    <h1>PUBLIC SEARCH</h1>
+    
+    <!-- </br><a style="left: 0px; position: absolute; top: 0px;" href="/">Back</a> -->
+    <div> 
+        {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+      <div class="box1 shadow"></div>
+        <form action="/searchresult/flight" method="POST">
+            <h2 style="left: 95px; position: absolute; top: 190px;">Please input following information to travel</h2></br>
+            <b style="left: 100px; position: absolute; top: 270px;">Departure City/Airport(either):</b></br>
+            <input style="left: 100px; position: absolute; top: 290px;" type="text" name = "departurecity" placeholder="enter departure city/airport" required/></br>
+            <b style="left: 100px; position: absolute; top: 360px;">Arrival City/Airport(either):</b></br>
+            <input style="left: 100px; position: absolute; top: 380px;" type="text" name = "arrivalcity" placeholder="enter arrival city/airport" required/></br>
+            <b style="left: 100px; position: absolute; top: 450px;">Departure Date:</b></br>
+            <input style="left: 100px; position: absolute; top: 470px;" type="date" name="departuredate" step=1 required/> </br>
+            <input style="left: 100px; position: absolute; top: 540px;" type="submit" value = Search />
+        </form>
+
+      <div class="box2 shadow"></div>
+        <form action="/searchresult/status" method="POST">
+            <h2 style="left: 800px; position: absolute; top: 190px;">Please input your flight number and <br>arrival/departure date to see the flight status</h2></br>
+            <b style="left: 805px; position: absolute; top: 270px;">Flight number:</b></br>
+            <input style="left: 805px; position: absolute; top: 290px;" type="text" name = "flightnumberbox" placeholder="enter the flight number" required/> </br>
+            <b style="left: 805px; position: absolute; top: 360px;">Departure/Arrival date:</b></br>
+            <input style="left: 805px; position: absolute; top: 380px;" type="date" name="doradate" step=1 required/> </br>
+            <input style="left: 805px; position: absolute; top: 450px;" type="submit" value = Search />
+        </form>
+    </div>
+
+
+    <!-- <ul>
+      <li><a href="/publicsearch">Public Search</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/registerCustomer">New Customer</a></li>
+      <li><a href="/registerAgent">New Agent</a></li>
+      <li><a href="/registerStaff">New Staff</a></li>
+    </ul> -->
+    
+    
+
+</body>
+
+</html>

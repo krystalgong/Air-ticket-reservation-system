@@ -1,0 +1,210 @@
+<html>
+    <head>
+        <title>viewrevenue</title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {
+                packages: ['corechart']
+            });
+        </script>
+    </head>
+    <style>
+        head {
+        text-align:center;
+        /* font-family:Arial Black, Gadget, sans-serif; */
+        }
+        body {
+            text-align:center;
+            font-family:Arial Black, Gadget, sans-serif;
+        background-image:url("http://www.ceair.com/upload/2020/09/20200917.png");
+            }
+        h1 {font-size:30px;}
+        h2 {font-size:20px;}
+        b {font-size:16px;}
+        input[type=text], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        input[type=number], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        input[type=password], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        input[type=datetime-local], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+    
+        input[type=date], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+        width: 30%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+        background-color: #45a049;
+        }
+        
+        table, td, th{
+            border:1px solid green;
+            margin:auto;
+        }
+        th{
+            background-color:green;
+            color:white;
+            padding:15px;
+        }
+        td{
+            padding:15px;
+            vertical-align:middle;
+            text-align:middle;
+        }
+        ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    
+    }
+    
+    li {
+        float: left;
+    }
+    
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    li a:hover {
+        background-color: #111;
+    }
+    </style>
+    <body>
+        <h1>Here is the revenue</h1>
+        {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+        </br>
+        <a href="/staffHome">Back to Home</a>
+        <div>
+        <h2>Comparison of revenue earned last month:</h2></br>
+        <div id="mcontainer" style="width: 350px; height: 200px; margin: 0 auto"></div></br>
+    </br></br>
+        <h2>Comparison of revenue earned last year:</h2></br>
+        <div id="ycontainer" style="width: 350px; height: 200px; margin: 0 auto"></div></br></br></br></br>
+        <script language="JavaScript">
+            function drawMChart() {
+                // var a = [['Direct sales','Indirect sales'],[parseInt('{{mdirect}}'),parseInt('{{mindirect}}')]];
+                // console.log(a);
+                
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Sales Type');
+                data.addColumn('number', 'Revenue');
+                data.addRows([
+                ['Direct sales',  parseInt('{{mdirect}}')],
+                ['Indirect sales', parseInt('{{mindirect}}')]
+                ]);
+
+                var options = {
+                    title: 'Comparison of revenue earned last month',
+                    sliceVisibilityThreshold: 0,
+                    pieSliceText: 'value',// 显示百分比，如果要显示具体值，需要配置为pieSliceText: 'value'
+                    chartArea: {
+                        left: 10,
+                        top: 10,
+                        width: '100%',
+                        height: '90%'
+                    },
+                    tooltip: {
+                        trigger: 'none',
+                        text: 'value'
+                    }
+                };
+                var chart = new google.visualization.PieChart(document.getElementById('mcontainer'));
+                chart.draw(data, options);
+            }
+            google.charts.setOnLoadCallback(drawMChart);
+
+            function drawYChart() {
+                // var a = [['Direct sales','Indirect sales'],[parseInt('{{mdirect}}'),parseInt('{{mindirect}}')]];
+                // console.log(a);
+                
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Sales Type');
+                data.addColumn('number', 'Revenue');
+                data.addRows([
+                ['Direct sales',  parseInt('{{ydirect}}')],
+                ['Indirect sales', parseInt('{{yindirect}}')]
+                ]);
+
+                var options = {
+                    title: 'Comparison of revenue earned last year',
+                    sliceVisibilityThreshold: 0,
+                    pieSliceText: 'value',// 显示百分比，如果要显示具体值，需要配置为pieSliceText: 'value'
+                    chartArea: {
+                        left: 10,
+                        top: 10,
+                        width: '100%',
+                        height: '90%'
+                    },
+                    tooltip: {
+                        trigger: 'none',
+                        text: 'value'
+                    }
+                };
+                var chart = new google.visualization.PieChart(document.getElementById('ycontainer'));
+                chart.draw(data, options);
+            }
+            google.charts.setOnLoadCallback(drawYChart);
+        </script>
+        </div>
+
+        
+
+    </body>
+
+
+</html>

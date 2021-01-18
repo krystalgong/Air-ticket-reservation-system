@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TrackSpendingCustomer</title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {
+                packages: ['corechart']
+            });
+        </script>
+    </head>
+    <style>
+        head {
+        text-align:center;
+        /* font-family:Arial Black, Gadget, sans-serif; */
+        }
+        body {
+            text-align:center;
+            font-family:Arial Black, Gadget, sans-serif;
+        background-image:url("http://www.ceair.com/upload/2020/09/20200917.png");
+            }
+        h1 {font-size:30px;}
+        h2 {font-size:20px;}
+        b {font-size:16px;}
+        input[type=text], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        input[type=number], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        input[type=password], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        input[type=datetime-local], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+    
+        input[type=date], select {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+        width: 30%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+        background-color: #45a049;
+        }
+        
+        table, td, th{
+            border:1px solid green;
+            margin:auto;
+        }
+        th{
+            background-color:green;
+            color:white;
+            padding:15px;
+        }
+        td{
+            padding:15px;
+            vertical-align:middle;
+            text-align:middle;
+        }
+        ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    
+    }
+    
+    li {
+        float: left;
+    }
+    
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    li a:hover {
+        background-color: #111;
+    }
+    </style>
+    <body>
+    <h1>Track My Spending</h1>
+    <a href="/homeCustomer">Go back to my home page</a>
+    <br>
+    <div> 
+        <!-- <h3>Track My Spending</h3> -->
+        <br><br><span>Total amount of money spent in the past year: </span>{{totalamount}}<br><br><br>
+        <!-- Bar chart!!! -->
+    {% if results %}
+        <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+        <script language="JavaScript">
+            function drawChart() {
+                var a = [['Month','Spending']];
+                for (i of '{{results}}'.split(',')){
+                    console.log(i.split(' ')[1])
+                    if (i != ''){
+                        a.push([i.split(' ')[1],parseInt(i.split(' ')[0])]);
+                    }
+                }
+                console.log(a);
+                var data = google.visualization.arrayToDataTable(a);
+                var options = {
+                    title: 'Monthwise Spending',
+                    isStacked: true
+                };
+                var chart = new google.visualization.BarChart(document.getElementById('container'));
+                chart.draw(data, options);
+            }
+            google.charts.setOnLoadCallback(drawChart);
+        </script>
+    {% endif %}
+
+        <br>
+        <h4>Track My Spending for Specified Duration</h4>
+        <div>
+            <form action="/homeCustomer/trackSpendingSpecific" method="POST">
+            From <br>
+            <input type="date" name = "fromdate" placeholder="date" required> <br>
+            To<br>
+            <input type="date" name = "todate" placeholder="date" required> <br><br>
+            <input type="submit" value=View>   
+            </form>
+            <br><br>
+        </div>
+
+        <br>
+        
+    </div> 

@@ -1,0 +1,293 @@
+<html>
+<head>
+    <title>StaffHome</title> 
+    <div>
+        <h1>Welcome! {{username}}!</h1>
+    </div>
+</head>
+<style>
+    head {
+    text-align:center;
+    /* font-family:Arial Black, Gadget, sans-serif; */
+    }
+    body {
+        text-align:center;
+        font-family:Arial Black, Gadget, sans-serif;
+        background-image:url("http://www.ceair.com/upload/2020/09/20200917.png");
+        }
+    h1 {font-size:30px;}
+    h2 {font-size:20px;}
+    b {font-size:16px;}
+    input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    input[type=number], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    input[type=password], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    input[type=datetime-local], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+    input[type=date], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+    width: 30%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+    background-color: #45a049;
+    }
+    
+    table, td, th{
+        border:1px solid green;
+        margin:auto;
+    }
+    th{
+        background-color:green;
+        color:white;
+        padding:15px;
+    }
+    td{
+        padding:15px;
+        vertical-align:middle;
+        text-align:middle;
+    }
+    ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #333;
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+li a, .dropbtn {
+   display: inline-block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+ }
+ 
+ li a:hover, .dropdown:hover .dropbtn {
+   background-color: rgb(11, 198, 255);
+ }
+ 
+ li.dropdown {
+   display: inline-block;
+ }
+ 
+ .dropdown-content {
+   display: none;
+   position: absolute;
+   background-color: #f9f9f9;
+   min-width: 160px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+ }
+ 
+ .dropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+   text-align: left;
+ }
+ 
+ .dropdown-content a:hover {background-color: #f1f1f1;}
+ 
+ .dropdown:hover .dropdown-content {
+   display: block;
+ }
+</style>
+<body>
+
+<h1>View Flights</h1>
+
+
+
+</br>{% if error %}
+    <p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+
+<ul>
+    <li>
+        <a href="/staffHome/searchFlights/updateFlight">Create a new flight or Change status</a>
+    </li>
+    <li>
+        <a href="/staffHome">Refresh the search result</a>
+    </li>
+    <li><a href="/staffHome/addAirplane">Add Airplane</a></li>
+    <li><a href="/staffHome/addAirport">Add Airport</a></li>
+    <li class='dropdown'>
+        <a href="javascript:void(0)" class="dropbtn">View</a>
+        <div class="dropdown-content">
+            <a href="/staffHome/viewBookingagents">View Booking Agents</a>
+            <a href="/staffHome/viewCustomers">View Customers</a>
+            <a href="/staffHome/viewReports">View Reports</a>
+            <a href="/staffHome/viewRevenues">View Revenues</a>
+            <a href="/staffHome/viewDestinations">View Top Destinations</a>
+        </div>
+    </li>
+        <li style="float:right"><a href="/logout"> Logout</a></li>
+
+</ul>
+
+{% if message2 %}
+<div>
+    <h2>{{message2}}</h2>
+</div>
+
+{% endif %}
+
+{% if message %}
+<div>
+    <h2>{{message}}</h2>
+</div>
+
+{% endif %}
+
+
+{% if results %}
+<div>
+    <table>
+        <th>airline_name</th>
+        <th>flight_num</th>
+        <th>departure_airport</th>
+        <th>departure_time</th>
+        <th>arrival_airport</th>
+        <th>arrival_time</th>
+        <th>price</th>
+        <th>status</th>
+        <th>airplane_id</th>
+        
+    {% for line in results %}
+        <tr>
+            <!-- <td>{{line.airline_name}}</td>
+            <td>{{line.flight_num}}</td>
+            <td>{{line.departure_airport}}</td>
+            <td>{{line.departure_time}}</td>
+            <td>{{line.arrival_airport}}</td>
+            <td>{{line.arrival_time}}</td>
+            <td>{{line.price}}</td>
+            <td>{{line.status}}</td>
+            <td>{{line.airplane_id}}</td> -->
+            <td>{{line[0]}}</td>
+            <td>{{line[1]}}</td>
+            <td>{{line[2]}}</td>
+            <td>{{line[3]}}</td>
+            <td>{{line[4]}}</td>
+            <td>{{line[5]}}</td>
+            <td>{{line[6]}}</td>
+            <td>{{line[7]}}</td>
+            <td>{{line[8]}}</td>
+        </tr>
+    {% endfor %}
+    </table></br>
+</div>
+
+
+{% endif %}
+
+{% if customerresults %}
+<div>
+    <table>
+        <th>Customer Email</th>
+        
+    {% for line in customerresults %}
+        <tr>
+            <td>{{line[0]}}</td>
+        </tr>
+    {% endfor %}
+    </table></br>
+</div>
+
+
+{% endif %}
+
+<div>
+    <form action="/staffHome/searchFlights/filter" method="POST">
+	
+        <h2>Filter</h2></br>  
+        <b>Departure City/Airport: (Enter 'None' if no specification)</b></br>  
+        <input type="text" name = "departurecitybox" placeholder="city/airport name" required/> </br>
+        <b>Arrival City/Airport: (Enter 'None' if no specification)</b></br>  
+        <input type="text" name = "arrivalcitybox" placeholder="city/airport name" required/> </br>
+        <b>From: </b></br>  
+        <input type="date" name="begin" step=1 required/> </br>
+        <b>To:</b></br>  
+        <input type="date" name="end" step=1 required/> </br>
+        <input type="submit" value = Search />
+    </form>
+
+</div>
+
+<div>
+    <form action="/staffHome/searchFlights/customers" method="POST">
+        <h2>Search customers by flight</h2></br> 
+        <b>Flight number:</b></br> 
+        <input type="text" name = "flightnumberbox" placeholder="enter flight number" required/> </br>
+        <input type="submit" value = Search />
+    
+    </form>
+</div>
+
+
+</body>

@@ -1,0 +1,1 @@
+Liancheng Gong is in charge of login, register, customer and booking agent user views. Ke Xu works on the public search, the homepage and the airline staff user view. Customer and booking agent cases share similar features while the airline staff case has more features to complete. We decorate the website together. Therefore the workload is split equally between us.

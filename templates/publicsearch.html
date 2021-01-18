@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title>publicsearch</title> 
+    </head>
+    <style>
+        head {
+            text-align:center;
+            /* font-family:Arial Black, Gadget, sans-serif; */
+        }
+        body {
+            text-align:center;
+            font-family:Arial Black, Gadget, sans-serif;
+        background-image:url("http://www.ceair.com/upload/2020/09/20200917.png");
+            }
+        h1 {font-size:30px;}
+        h2 {font-size:20px;}
+        b {font-size:16px;}
+        input[type=text], select {
+          width: 50%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+
+        input[type=date], select {
+          width: 50%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+          width: 30%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+        
+        a:link {text-decoration:none;}    /* unvisited link */
+        a:visited {text-decoration:none;} /* visited link */
+        a:hover {text-decoration:underline;}   /* mouse over link */
+        a:active {text-decoration:underline;}  /* selected link */
+    </style>
+    <body>
+
+        <h1>PUBLIC SEARCH</h1>
+        {% if error %}
+            <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+        </br><a href="/">Back</a>
+        <div> 
+            <form action="/searchresult/flight" method="POST">
+                <h2>Please input your departure city/airport, arrival city/airport, data to travel</h2></br>
+                <b>Departure City/Airport(either):</b></br>
+                <input type="text" name = "departurecity" placeholder="enter departure city/airport" required/></br>
+                <b>Arrival City/Airport(either):</b></br>
+                <input type="text" name = "arrivalcity" placeholder="enter arrival city/airport" required/></br>
+                <b>Departure Date:</b></br>
+                <input type="date" name="departuredate" step=1 required/> </br>
+                <input type="submit" value = Search />
+            </form>
+    
+            <form action="/searchresult/status" method="POST">
+                <h2>Please input your flight number and arrival/departure date to see the flight status</h2></br>
+                <b>Flight number:</b></br>
+                <input type="text" name = "flightnumberbox" placeholder="enter the flight number" required/> </br>
+                <b>Departure/Arrival date:</b></br>
+                <input type="date" name="doradate" step=1 required/> </br>
+                <input type="submit" value = Search />
+            </form>
+        </div>
+        
+    </body>
+</html>
